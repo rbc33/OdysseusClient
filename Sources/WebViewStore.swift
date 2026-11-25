@@ -90,14 +90,14 @@ extension WebViewStore: WKNavigationDelegate {
         // mailto:, tel:, etc.
         let webSchemes: Set<String> = ["http", "https", "about", "blob", "data"]
         if let scheme = url.scheme?.lowercased(), !webSchemes.contains(scheme) {
-            UIApplication.shared.open(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
             return .cancel
         }
         // Enlaces externos (fuentes de deep research, etc.) → Safari
         if navigationAction.navigationType == .linkActivated,
            navigationAction.targetFrame?.isMainFrame ?? true,
            !isInternal(url) {
-            UIApplication.shared.open(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
             return .cancel
         }
         return .allow
@@ -205,8 +205,8 @@ extension WebViewStore: WKUIDelegate {
     }
 
     func webView(_ webView: WKWebView,
-                 requestMediaCapturePermissionFor origin: WKSecurityOrigin,
-                 initiatedByFrame frame: WKFrameInfo,
+                 decideMediaCapturePermissionsFor origin: WKSecurityOrigin,
+                 initiatedBy frame: WKFrameInfo,
                  type: WKMediaCaptureType) async -> WKPermissionDecision {
         origin.host == baseURL?.host ? .grant : .prompt
     }
