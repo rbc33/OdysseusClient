@@ -2,12 +2,12 @@
 # Actualiza este proyecto con el contenido de un OdysseusClient.zip nuevo.
 #
 # Uso: ./update.sh [ruta/al/zip] [--delete]
-#   Por defecto usa ~/Downloads/OdysseusClient.zip
+#   Por defecto usa el zip junto a la carpeta del proyecto (~/code/swift/OdysseusClient.zip)
 #   --delete  borra también los archivos que ya no vienen en el zip
 set -euo pipefail
 
 DEST="$(cd "$(dirname "$0")" && pwd)"
-ZIP="$HOME/Downloads/OdysseusClient.zip"
+ZIP="$(dirname "$DEST")/OdysseusClient.zip"   # ~/code/swift/OdysseusClient.zip
 DELETE=()
 
 for arg in "$@"; do
@@ -41,7 +41,7 @@ rsync -a ${DELETE[@]+"${DELETE[@]}"} \
   --exclude 'icon.png' \
   "$SRC/" "$DEST/"
 
-chmod +x "$DEST/release.sh" "$DEST/update.sh" 2>/dev/null || true
+chmod +x "$DEST/build.sh" "$DEST/release.sh" "$DEST/update.sh" 2>/dev/null || true
 
 if command -v xcodegen >/dev/null; then
   (cd "$DEST" && xcodegen generate --quiet) && echo "✔︎ Proyecto Xcode regenerado"

@@ -29,12 +29,20 @@ Añade un icono de 1024×1024 en `Sources/Assets.xcassets/AppIcon.appiconset`.
 ## Actualizar desde un zip nuevo
 
 ```bash
-./update.sh                       # usa ~/Downloads/OdysseusClient.zip
+./update.sh                       # usa ~/code/swift/OdysseusClient.zip
 ./update.sh ~/ruta/otro.zip --delete
 ```
 
 Extrae en una carpeta temporal y copia encima (respeta `.git`, `build/` e `icon.png`).
 `--delete` elimina los archivos que ya no vienen en el zip.
+
+## Build local
+
+```bash
+./build.sh    # → build/Odysseus-<versión>.ipa sin firmar
+```
+
+Instálalo en SideStore con + → elegir el .ipa (AirDrop o Archivos).
 
 ## Release + SideStore
 
@@ -42,7 +50,7 @@ Extrae en una carpeta temporal y copia encima (respeta `.git`, `build/` e `icon.
 ./release.sh 1.0.1 "Notas de la versión"
 ```
 
-Sube la versión en `project.yml`, compila un `.ipa` sin firmar (SideStore lo re-firma),
+Sube la versión en `project.yml`, compila con `build.sh`,
 lo publica en GitHub Releases y actualiza `source.json`.
 
 Añade la source en SideStore → Sources → +:

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Compila un .ipa sin firmar (SideStore lo re-firma), lo sube a GitHub Releases
+# Sube la versión, compila con build.sh, publica el .ipa en GitHub Releases
 # y actualiza source.json para SideStore/AltStore.
 #
 # Uso: ./release.sh 1.0.1 ["Notas de la versión"]
@@ -7,8 +7,6 @@ set -euo pipefail
 
 REPO="rbc33/odysseus-ios"
 BRANCH="main"
-TARGET="Odysseus"
-PROJECT="OdysseusClient.xcodeproj"
 APP_NAME="Odysseus"
 BUNDLE_ID="com.rbc33.odysseus"
 MIN_OS="17.0"
@@ -20,7 +18,7 @@ TAG="v$VERSION"
 cd "$(dirname "$0")"
 
 # --- Comprobaciones ---------------------------------------------------------
-for cmd in xcodegen xcodebuild gh python3 zip; do
+for cmd in gh python3; do
   command -v "$cmd" >/dev/null || { echo "❌ Falta $cmd"; exit 1; }
 done
 [[ -z "$(git status --porcelain)" ]] || { echo "❌ Hay cambios sin commitear"; exit 1; }
@@ -36,24 +34,12 @@ sed -i '' -E "s/(CURRENT_PROJECT_VERSION: )\"[^\"]*\"/\1\"$BUILD\"/" project.yml
 echo "▶︎ $APP_NAME $VERSION ($BUILD)"
 
 # --- Build ------------------------------------------------------------------
-xcodegen generate --quiet
-rm -rf build
-xcodebuild -project "$PROJECT" -target "$TARGET" -configuration Release -sdk iphoneos \
-  SYMROOT="$PWD/build" \
-  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
-  clean build | { if command -v xcbeautify >/dev/null; then xcbeautify; else cat; fi; }
+./build.sh
 
-APP="build/Release-iphoneos/$APP_NAME.app"
-[[ -d "$APP" ]] || { echo "❌ No se encontró $APP"; exit 1; }
-
-# --- Empaquetar .ipa --------------------------------------------------------
 IPA_NAME="$APP_NAME-$VERSION.ipa"
-mkdir -p build/ipa/Payload
-cp -R "$APP" build/ipa/Payload/
-(cd build/ipa && zip -qry "../$IPA_NAME" Payload)
 IPA="build/$IPA_NAME"
+[[ -f "$IPA" ]] || { echo "❌ No se generó $IPA"; exit 1; }
 SIZE=$(stat -f%z "$IPA")
-echo "✔︎ $IPA ($((SIZE / 1024)) KB)"
 
 # --- Git + GitHub Release ---------------------------------------------------
 git add project.yml
