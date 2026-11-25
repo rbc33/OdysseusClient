@@ -26,6 +26,16 @@ Con Apple ID gratuito la firma dura 7 días (AltStore/AltServer la renueva).
 
 Añade un icono de 1024×1024 en `Sources/Assets.xcassets/AppIcon.appiconset`.
 
+## Actualizar desde un zip nuevo
+
+```bash
+./update.sh                       # usa ~/Downloads/OdysseusClient.zip
+./update.sh ~/ruta/otro.zip --delete
+```
+
+Extrae en una carpeta temporal y copia encima (respeta `.git`, `build/` e `icon.png`).
+`--delete` elimina los archivos que ya no vienen en el zip.
+
 ## Release + SideStore
 
 ```bash
