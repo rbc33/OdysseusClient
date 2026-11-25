@@ -24,7 +24,6 @@ open OdysseusClient.xcodeproj
 En Xcode: target Odysseus → Signing & Capabilities → elige tu Team → Run en el iPhone.
 Con Apple ID gratuito la firma dura 7 días (AltStore/AltServer la renueva).
 
-Añade un icono de 1024×1024 en `Sources/Assets.xcassets/AppIcon.appiconset`.
 
 ## Actualizar desde un zip nuevo
 
@@ -33,7 +32,7 @@ Añade un icono de 1024×1024 en `Sources/Assets.xcassets/AppIcon.appiconset`.
 ./update.sh ~/ruta/otro.zip --delete
 ```
 
-Extrae en una carpeta temporal y copia encima (respeta `.git`, `build/` e `icon.png`).
+Extrae en una carpeta temporal y copia encima (respeta `.git` y `build/`).
 `--delete` elimina los archivos que ya no vienen en el zip.
 
 ## Build local
@@ -60,7 +59,7 @@ https://raw.githubusercontent.com/rbc33/odysseus-ios/main/source.json
 ```
 
 Requisitos: `brew install xcodegen gh` (opcional `xcbeautify`), `gh auth login`.
-Pon un `icon.png` en la raíz del repo (lo usa la source).
+`icon.png` (raíz) es el icono de la source; `AppIcon.png` el de la app (ambos del logo de Odysseus).
 
 ## Servidor (rictow)
 

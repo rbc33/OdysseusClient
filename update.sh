@@ -38,7 +38,6 @@ rsync -a ${DELETE[@]+"${DELETE[@]}"} \
   --exclude 'DerivedData/' \
   --exclude 'xcuserdata/' \
   --exclude '.DS_Store' \
-  --exclude 'icon.png' \
   "$SRC/" "$DEST/"
 
 chmod +x "$DEST/build.sh" "$DEST/release.sh" "$DEST/update.sh" 2>/dev/null || true

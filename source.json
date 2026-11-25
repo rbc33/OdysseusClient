@@ -5,7 +5,7 @@
   "description": "Cliente iOS para Odysseus self-hosted.",
   "iconURL": "https://raw.githubusercontent.com/rbc33/odysseus-ios/main/icon.png",
   "website": "https://github.com/rbc33/odysseus-ios",
-  "tintColor": "#5B5BD6",
+  "tintColor": "#E06C75",
   "apps": [
     {
       "name": "Odysseus",
@@ -14,7 +14,7 @@
       "subtitle": "Tu workspace de IA self-hosted en el iPhone",
       "localizedDescription": "Cliente nativo para Odysseus corriendo en tu propio servidor (Tailscale). Sesión persistente, Face ID, descargas y enlaces externos en Safari.",
       "iconURL": "https://raw.githubusercontent.com/rbc33/odysseus-ios/main/icon.png",
-      "tintColor": "#5B5BD6",
+      "tintColor": "#E06C75",
       "category": "utilities",
       "screenshots": [],
       "versions": [
