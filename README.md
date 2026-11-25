@@ -38,7 +38,7 @@ Extrae en una carpeta temporal y copia encima (respeta `.git` y `build/`).
 ## Build local
 
 ```bash
-./build.sh    # → build/Odysseus-<versión>.ipa sin firmar
+./build.sh    # → build/Odysseus.ipa sin firmar
 ```
 
 Instálalo en SideStore con + → elegir el .ipa (AirDrop o Archivos).
@@ -56,6 +56,12 @@ Añade la source en SideStore → Sources → +:
 
 ```
 https://raw.githubusercontent.com/rbc33/odysseus-ios/main/source.json
+```
+
+Última versión siempre en:
+
+```
+https://github.com/rbc33/odysseus-ios/releases/latest/download/Odysseus.ipa
 ```
 
 Requisitos: `brew install xcodegen gh` (opcional `xcbeautify`), `gh auth login`.

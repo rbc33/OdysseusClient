@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Compila un .ipa sin firmar (SideStore lo re-firma al instalar).
-# Salida: build/Odysseus-<versión>.ipa  (versión = MARKETING_VERSION de project.yml)
+# Salida: build/Odysseus.ipa
 #
 # Uso: ./build.sh
 set -euo pipefail
@@ -29,7 +29,7 @@ xcodebuild -project "$PROJECT" -target "$TARGET" -configuration Release -sdk iph
 APP="build/Release-iphoneos/$APP_NAME.app"
 [[ -d "$APP" ]] || { echo "❌ No se encontró $APP"; exit 1; }
 
-IPA_NAME="$APP_NAME-$VERSION.ipa"
+IPA_NAME="$APP_NAME.ipa"
 mkdir -p build/ipa/Payload
 cp -R "$APP" build/ipa/Payload/
 (cd build/ipa && zip -qry "../$IPA_NAME" Payload)

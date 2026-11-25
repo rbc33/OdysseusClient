@@ -36,7 +36,7 @@ echo "▶︎ $APP_NAME $VERSION ($BUILD)"
 # --- Build ------------------------------------------------------------------
 ./build.sh
 
-IPA_NAME="$APP_NAME-$VERSION.ipa"
+IPA_NAME="$APP_NAME.ipa"
 IPA="build/$IPA_NAME"
 [[ -f "$IPA" ]] || { echo "❌ No se generó $IPA"; exit 1; }
 SIZE=$(stat -f%z "$IPA")
