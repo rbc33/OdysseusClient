@@ -30,6 +30,10 @@ rm -rf "$TMP/__MACOSX"
 SRC="$TMP/OdysseusClient"
 [[ -d "$SRC" ]] || SRC="$TMP"
 
+# release.sh gestiona la versión y source.json: no dejar que un zip antiguo los pise
+OLD_VERSION=$(sed -n -E 's/.*MARKETING_VERSION: "([^"]+)".*/\1/p' "$DEST/project.yml" 2>/dev/null || true)
+OLD_BUILD=$(sed -n -E 's/.*CURRENT_PROJECT_VERSION: "([^"]+)".*/\1/p' "$DEST/project.yml" 2>/dev/null || true)
+
 echo "▶︎ $ZIP → $DEST"
 rsync -a ${DELETE[@]+"${DELETE[@]}"} \
   --exclude '.git/' \
@@ -38,7 +42,13 @@ rsync -a ${DELETE[@]+"${DELETE[@]}"} \
   --exclude 'DerivedData/' \
   --exclude 'xcuserdata/' \
   --exclude '.DS_Store' \
+  --exclude 'source.json' \
   "$SRC/" "$DEST/"
+
+if [[ -n "$OLD_VERSION" && -n "$OLD_BUILD" ]]; then
+  sed -i '' -E "s/(MARKETING_VERSION: )\"[^\"]*\"/\1\"$OLD_VERSION\"/" "$DEST/project.yml"
+  sed -i '' -E "s/(CURRENT_PROJECT_VERSION: )\"[^\"]*\"/\1\"$OLD_BUILD\"/" "$DEST/project.yml"
+fi
 
 chmod +x "$DEST/build.sh" "$DEST/release.sh" "$DEST/update.sh" 2>/dev/null || true
 
