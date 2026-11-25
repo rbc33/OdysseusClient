@@ -19,6 +19,15 @@
       "screenshots": [],
       "versions": [
         {
+          "version": "1.0.1",
+          "buildVersion": "3",
+          "date": "2026-11-25T17:12:46Z",
+          "localizedDescription": "Icono de Odysseus",
+          "downloadURL": "https://github.com/rbc33/odysseus-ios/releases/download/v1.0.1/Odysseus-1.0.1.ipa",
+          "size": 188242,
+          "minOSVersion": "17.0"
+        },
+        {
           "version": "1.0.0",
           "buildVersion": "2",
           "date": "2026-11-25T17:02:08Z",
@@ -38,11 +47,11 @@
           "NSMicrophoneUsageDescription": "Para el dictado por voz en Odysseus."
         }
       },
-      "version": "1.0.0",
-      "versionDate": "2026-11-25T17:02:08Z",
-      "versionDescription": "Primera versión",
-      "downloadURL": "https://github.com/rbc33/odysseus-ios/releases/download/v1.0.0/Odysseus-1.0.0.ipa",
-      "size": 120984
+      "version": "1.0.1",
+      "versionDate": "2026-11-25T17:12:46Z",
+      "versionDescription": "Icono de Odysseus",
+      "downloadURL": "https://github.com/rbc33/odysseus-ios/releases/download/v1.0.1/Odysseus-1.0.1.ipa",
+      "size": 188242
     }
   ],
   "news": []
