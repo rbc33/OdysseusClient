@@ -26,6 +26,24 @@ Con Apple ID gratuito la firma dura 7 días (AltStore/AltServer la renueva).
 
 Añade un icono de 1024×1024 en `Sources/Assets.xcassets/AppIcon.appiconset`.
 
+## Release + SideStore
+
+```bash
+./release.sh 1.0.1 "Notas de la versión"
+```
+
+Sube la versión en `project.yml`, compila un `.ipa` sin firmar (SideStore lo re-firma),
+lo publica en GitHub Releases y actualiza `source.json`.
+
+Añade la source en SideStore → Sources → +:
+
+```
+https://raw.githubusercontent.com/rbc33/odysseus-ios/main/source.json
+```
+
+Requisitos: `brew install xcodegen gh` (opcional `xcbeautify`), `gh auth login`.
+Pon un `icon.png` en la raíz del repo (lo usa la source).
+
 ## Servidor (rictow)
 
 Por defecto apunta a `http://rictow:7000` (MagicDNS de Tailscale). En `.env` de Odysseus:

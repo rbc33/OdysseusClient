@@ -1,0 +1,34 @@
+{
+  "name": "rbc33 Apps",
+  "identifier": "com.rbc33.source",
+  "subtitle": "Apps de Ricardo para SideStore",
+  "description": "Cliente iOS para Odysseus self-hosted.",
+  "iconURL": "https://raw.githubusercontent.com/rbc33/odysseus-ios/main/icon.png",
+  "website": "https://github.com/rbc33/odysseus-ios",
+  "tintColor": "#5B5BD6",
+  "apps": [
+    {
+      "name": "Odysseus",
+      "bundleIdentifier": "com.rbc33.odysseus",
+      "developerName": "rbc33",
+      "subtitle": "Tu workspace de IA self-hosted en el iPhone",
+      "localizedDescription": "Cliente nativo para Odysseus corriendo en tu propio servidor (Tailscale). Sesión persistente, Face ID, descargas y enlaces externos en Safari.",
+      "iconURL": "https://raw.githubusercontent.com/rbc33/odysseus-ios/main/icon.png",
+      "tintColor": "#5B5BD6",
+      "category": "utilities",
+      "screenshots": [],
+      "versions": [],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSFaceIDUsageDescription": "Usa Face ID para desbloquear Odysseus.",
+          "NSLocalNetworkUsageDescription": "Odysseus se conecta a tu servidor en la red local o Tailscale.",
+          "NSCameraUsageDescription": "Para adjuntar fotos a los chats.",
+          "NSPhotoLibraryUsageDescription": "Para adjuntar imágenes a los chats.",
+          "NSMicrophoneUsageDescription": "Para el dictado por voz en Odysseus."
+        }
+      }
+    }
+  ],
+  "news": []
+}
