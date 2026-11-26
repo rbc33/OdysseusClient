@@ -43,7 +43,7 @@ targets:
           - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
-        # Permite http:// a hosts sin dominio (rictow), .local e IPs (Tailscale 100.x)
+        # Permite http:// a hosts sin dominio (MagicDNS), .local e IPs
         NSAppTransportSecurity:
           NSAllowsLocalNetworking: true
         NSLocalNetworkUsageDescription: Odysseus se conecta a tu servidor en la red local o Tailscale.

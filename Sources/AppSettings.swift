@@ -1,7 +1,7 @@
 import Foundation
 
 final class AppSettings: ObservableObject {
-    static let defaultServer = "http://rictow:7000"
+    static let defaultServer = ""   // vacío: la primera vez se abren los ajustes
 
     @Published var serverURL: String {
         didSet { UserDefaults.standard.set(serverURL, forKey: Keys.serverURL) }
@@ -23,7 +23,7 @@ final class AppSettings: ObservableObject {
 
     var url: URL? { Self.normalize(serverURL) }
 
-    /// Acepta "rictow:7000", "100.x.y.z:7000" o una URL completa.
+    /// Acepta "servidor:7000", "100.x.y.z:7000" o una URL completa.
     static func normalize(_ raw: String) -> URL? {
         var text = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !text.isEmpty else { return nil }

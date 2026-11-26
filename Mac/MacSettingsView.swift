@@ -12,7 +12,7 @@ struct MacSettingsView: View {
     var body: some View {
         Form {
             Section {
-                TextField("URL", text: $draftURL, prompt: Text("https://rictow.tu-tailnet.ts.net"))
+                TextField("URL", text: $draftURL, prompt: Text("https://servidor.tu-tailnet.ts.net"))
                     .autocorrectionDisabled()
                     .onSubmit(save)
                 HStack {
@@ -30,7 +30,7 @@ struct MacSettingsView: View {
             } header: {
                 Text("Servidor")
             } footer: {
-                Text("MagicDNS (rictow:7000), IP de Tailscale o LAN (100.x.y.z:7000) o la URL https de `tailscale serve`.")
+                Text("URL https de `tailscale serve`, nombre MagicDNS (servidor:7000) o IP de Tailscale/LAN (100.x.y.z:7000).")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }

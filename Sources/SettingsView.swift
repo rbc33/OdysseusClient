@@ -14,7 +14,7 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("http://rictow:7000", text: $draftURL)
+                    TextField("https://servidor.tu-tailnet.ts.net", text: $draftURL)
                         .keyboardType(.URL)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
@@ -33,7 +33,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Servidor")
                 } footer: {
-                    Text("MagicDNS (rictow:7000), IP de Tailscale (100.x.y.z:7000) o la URL https de `tailscale serve`.")
+                    Text("URL https de `tailscale serve`, nombre MagicDNS (servidor:7000) o IP (100.x.y.z:7000).")
                 }
 
                 Section("Seguridad") {

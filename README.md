@@ -39,13 +39,8 @@ https://github.com/rbc33/OdysseusClient/releases/latest/download/com.rbc33.odyss
 |---|---|
 | `./build-ipa.sh` | `.ipa` sin firmar → `build/com.rbc33.odysseus.ipa` |
 | `./build-mac.sh [--open]` | App universal firmada ad-hoc + DMG → `build/Odysseus.dmg` |
-| `./release.sh 1.1.0 "Notas"` | Sube versión, compila ambos, publica el release, actualiza `source.json` y el cask de Homebrew |
-| `./update.sh [zip] [--delete]` | Aplica un `OdysseusClient.zip` nuevo (por defecto `../OdysseusClient.zip`) |
 
-`release.sh` crea y clona el tap `rbc33/homebrew-odysseusclient` en `../homebrew-odysseusclient`
-la primera vez. `update.sh` nunca pisa `source.json` ni la versión de `project.yml`.
-
-Requisitos: `brew install xcodegen gh` (opcional `xcbeautify`), `gh auth login`.
+Requisitos: `brew install xcodegen` (opcional `xcbeautify`).
 
 SideStore deduce el bundle ID del nombre del archivo, por eso el `.ipa` se llama
 `com.rbc33.odysseus.ipa`.
@@ -56,7 +51,7 @@ SideStore deduce el bundle ID del nombre del archivo, por eso el `.ipa` se llama
 - `Mac/` — app macOS
 - `icon.png` — icono de la source de SideStore
 
-## Servidor (rictow)
+## Servidor
 
 En `.env` de Odysseus:
 
@@ -65,7 +60,7 @@ AUTH_ENABLED=true
 LOCALHOST_BYPASS=false
 ```
 
-No abras el puerto 7000 en el router: entra solo por Tailscale.
+No abras el puerto de Odysseus en el router: entra solo por Tailscale.
 
 ### HTTPS (necesario en iOS dentro de LiveContainer, micrófono y portapapeles)
 
@@ -73,5 +68,5 @@ No abras el puerto 7000 en el router: entra solo por Tailscale.
 sudo tailscale serve --bg 7000
 ```
 
-Luego pon en los ajustes `https://rictow.<tu-tailnet>.ts.net` (sin puerto).
+Luego pon en los ajustes `https://<servidor>.<tu-tailnet>.ts.net` (sin puerto).
 En Mac también funciona `http://` a la IP o a MagicDNS.
