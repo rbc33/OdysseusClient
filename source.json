@@ -19,6 +19,15 @@
       "screenshots": [],
       "versions": [
         {
+          "version": "1.1.1",
+          "buildVersion": "7",
+          "date": "2026-11-26T18:34:55Z",
+          "localizedDescription": "Servidor configurable sin valor por defecto",
+          "downloadURL": "https://github.com/rbc33/OdysseusClient/releases/download/v1.1.1/com.rbc33.odysseus.ipa",
+          "size": 188216,
+          "minOSVersion": "17.0"
+        },
+        {
           "version": "1.1.0",
           "buildVersion": "6",
           "date": "2026-11-26T16:29:17Z",
@@ -74,11 +83,11 @@
           "NSMicrophoneUsageDescription": "Para el dictado por voz en Odysseus."
         }
       },
-      "version": "1.1.0",
-      "versionDate": "2026-11-26T16:29:17Z",
-      "versionDescription": "App para Mac y Homebrew",
-      "downloadURL": "https://github.com/rbc33/OdysseusClient/releases/download/v1.1.0/com.rbc33.odysseus.ipa",
-      "size": 188246
+      "version": "1.1.1",
+      "versionDate": "2026-11-26T18:34:55Z",
+      "versionDescription": "Servidor configurable sin valor por defecto",
+      "downloadURL": "https://github.com/rbc33/OdysseusClient/releases/download/v1.1.1/com.rbc33.odysseus.ipa",
+      "size": 188216
     }
   ],
   "news": []
