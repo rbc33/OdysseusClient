@@ -3,8 +3,8 @@
   "identifier": "com.rbc33.source",
   "subtitle": "Apps de Ricardo para SideStore",
   "description": "Cliente iOS para Odysseus self-hosted.",
-  "iconURL": "https://raw.githubusercontent.com/rbc33/odysseus-ios/main/icon.png",
-  "website": "https://github.com/rbc33/odysseus-ios",
+  "iconURL": "https://raw.githubusercontent.com/rbc33/OdysseusClient/main/icon.png",
+  "website": "https://github.com/rbc33/OdysseusClient",
   "tintColor": "#E06C75",
   "apps": [
     {
@@ -13,17 +13,26 @@
       "developerName": "rbc33",
       "subtitle": "Tu workspace de IA self-hosted en el iPhone",
       "localizedDescription": "Cliente nativo para Odysseus corriendo en tu propio servidor (Tailscale). Sesión persistente, Face ID, descargas y enlaces externos en Safari.",
-      "iconURL": "https://raw.githubusercontent.com/rbc33/odysseus-ios/main/icon.png",
+      "iconURL": "https://raw.githubusercontent.com/rbc33/OdysseusClient/main/icon.png",
       "tintColor": "#E06C75",
       "category": "utilities",
       "screenshots": [],
       "versions": [
         {
+          "version": "1.1.0",
+          "buildVersion": "6",
+          "date": "2026-11-26T16:29:17Z",
+          "localizedDescription": "App para Mac y Homebrew",
+          "downloadURL": "https://github.com/rbc33/OdysseusClient/releases/download/v1.1.0/com.rbc33.odysseus.ipa",
+          "size": 188246,
+          "minOSVersion": "17.0"
+        },
+        {
           "version": "1.0.3",
           "buildVersion": "5",
           "date": "2026-11-25T17:26:26Z",
           "localizedDescription": "Ipa con nombre del bundle ID",
-          "downloadURL": "https://github.com/rbc33/odysseus-ios/releases/download/v1.0.3/com.rbc33.odysseus.ipa",
+          "downloadURL": "https://github.com/rbc33/OdysseusClient/releases/download/v1.0.3/com.rbc33.odysseus.ipa",
           "size": 188243,
           "minOSVersion": "17.0"
         },
@@ -32,7 +41,7 @@
           "buildVersion": "4",
           "date": "2026-11-25T17:23:23Z",
           "localizedDescription": "Nombre fijo del ipa",
-          "downloadURL": "https://github.com/rbc33/odysseus-ios/releases/download/v1.0.2/Odysseus.ipa",
+          "downloadURL": "https://github.com/rbc33/OdysseusClient/releases/download/v1.0.2/Odysseus.ipa",
           "size": 188242,
           "minOSVersion": "17.0"
         },
@@ -41,7 +50,7 @@
           "buildVersion": "3",
           "date": "2026-11-25T17:12:46Z",
           "localizedDescription": "Icono de Odysseus",
-          "downloadURL": "https://github.com/rbc33/odysseus-ios/releases/download/v1.0.1/Odysseus-1.0.1.ipa",
+          "downloadURL": "https://github.com/rbc33/OdysseusClient/releases/download/v1.0.1/Odysseus-1.0.1.ipa",
           "size": 188242,
           "minOSVersion": "17.0"
         },
@@ -50,7 +59,7 @@
           "buildVersion": "2",
           "date": "2026-11-25T17:02:08Z",
           "localizedDescription": "Primera versión",
-          "downloadURL": "https://github.com/rbc33/odysseus-ios/releases/download/v1.0.0/Odysseus-1.0.0.ipa",
+          "downloadURL": "https://github.com/rbc33/OdysseusClient/releases/download/v1.0.0/Odysseus-1.0.0.ipa",
           "size": 120984,
           "minOSVersion": "17.0"
         }
@@ -65,11 +74,11 @@
           "NSMicrophoneUsageDescription": "Para el dictado por voz en Odysseus."
         }
       },
-      "version": "1.0.3",
-      "versionDate": "2026-11-25T17:26:26Z",
-      "versionDescription": "Ipa con nombre del bundle ID",
-      "downloadURL": "https://github.com/rbc33/odysseus-ios/releases/download/v1.0.3/com.rbc33.odysseus.ipa",
-      "size": 188243
+      "version": "1.1.0",
+      "versionDate": "2026-11-26T16:29:17Z",
+      "versionDescription": "App para Mac y Homebrew",
+      "downloadURL": "https://github.com/rbc33/OdysseusClient/releases/download/v1.1.0/com.rbc33.odysseus.ipa",
+      "size": 188246
     }
   ],
   "news": []
