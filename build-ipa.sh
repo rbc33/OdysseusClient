@@ -2,7 +2,7 @@
 # Compila un .ipa sin firmar (SideStore lo re-firma al instalar).
 # Salida: build/com.rbc33.odysseus.ipa
 #
-# Uso: ./build.sh
+# Uso: ./build-ipa.sh
 set -euo pipefail
 
 TARGET="Odysseus"
@@ -18,19 +18,19 @@ done
 
 VERSION=$(sed -n -E 's/.*MARKETING_VERSION: "([^"]+)".*/\1/p' project.yml)
 BUILD=$(sed -n -E 's/.*CURRENT_PROJECT_VERSION: "([^"]+)".*/\1/p' project.yml)
-echo "▶︎ Compilando $APP_NAME $VERSION ($BUILD)"
+echo "▶︎ Compilando $APP_NAME iOS $VERSION ($BUILD)"
 
 xcodegen generate --quiet
-rm -rf build
+IPA_NAME="$BUNDLE_ID.ipa"   # SideStore deduce el bundle ID del nombre del archivo
+rm -rf build/ios "build/$IPA_NAME"   # no toca el build de Mac
 xcodebuild -project "$PROJECT" -target "$TARGET" -configuration Release -sdk iphoneos \
-  SYMROOT="$PWD/build" \
+  SYMROOT="$PWD/build/ios" \
   CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
   clean build | { if command -v xcbeautify >/dev/null; then xcbeautify; else cat; fi; }
 
-APP="build/Release-iphoneos/$APP_NAME.app"
+APP="build/ios/Release-iphoneos/$APP_NAME.app"
 [[ -d "$APP" ]] || { echo "❌ No se encontró $APP"; exit 1; }
 
-IPA_NAME="$BUNDLE_ID.ipa"   # SideStore deduce el bundle ID del nombre del archivo
 mkdir -p build/ipa/Payload
 cp -R "$APP" build/ipa/Payload/
 (cd build/ipa && zip -qry "../$IPA_NAME" Payload)

@@ -50,7 +50,7 @@ if [[ -n "$OLD_VERSION" && -n "$OLD_BUILD" ]]; then
   sed -i '' -E "s/(CURRENT_PROJECT_VERSION: )\"[^\"]*\"/\1\"$OLD_BUILD\"/" "$DEST/project.yml"
 fi
 
-chmod +x "$DEST/build.sh" "$DEST/release.sh" "$DEST/update.sh" 2>/dev/null || true
+chmod +x "$DEST"/*.sh 2>/dev/null || true
 
 if command -v xcodegen >/dev/null; then
   (cd "$DEST" && xcodegen generate --quiet) && echo "✔︎ Proyecto Xcode regenerado"
